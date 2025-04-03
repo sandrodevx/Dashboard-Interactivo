@@ -1,6 +1,5 @@
 # Dashboard Moderno con Bootstrap 5
 
-![Preview](preview.jpg)
 
 Dashboard administrativo responsive con diseño profesional, ideal para sistemas de gestión. Desarrollado con Bootstrap 5 y CSS moderno.
 
