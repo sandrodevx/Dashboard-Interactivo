@@ -3,159 +3,372 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Dashboard Interactivo</title>
+    <title>Dashboard Premium</title>
     
-    <!-- Bootstrap CSS -->
-    <link href="lib/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Bootstrap 5 CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
     
-    <!-- Chart.js -->
-    <script src="lib/chart.js/chart.min.js"></script>
+    <!-- Bootstrap Icons -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.0/font/bootstrap-icons.css">
     
-    <!-- Estilos personalizados -->
-    <link href="css/styles.css" rel="stylesheet">
+    <!-- CSS Personalizado -->
     <link href="css/dashboard.css" rel="stylesheet">
 </head>
-<body>
-    <!-- Navbar -->
-    <nav class="navbar navbar-expand-lg navbar-dark bg-primary">
-        <div class="container-fluid">
-            <a class="navbar-brand" href="#">Dashboard Impresionante</a>
-            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
-                <span class="navbar-toggler-icon"></span>
-            </button>
-            <div class="collapse navbar-collapse" id="navbarNav">
-                <ul class="navbar-nav ms-auto">
-                    <li class="nav-item">
-                        <a class="nav-link active" href="#">Inicio</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="#">Reportes</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="#">Configuración</a>
-                    </li>
-                </ul>
+<body class="dashboard-body">
+    <!-- Wrapper -->
+    <div class="dashboard-wrapper">
+        <!-- Sidebar -->
+        <nav id="sidebar" class="dashboard-sidebar">
+            <div class="sidebar-header">
+                <h3 class="dashboard-brand">
+                    <i class="bi bi-speedometer2"></i> DashboardPro
+                </h3>
             </div>
-        </div>
-    </nav>
 
-    <!-- Contenido principal -->
-    <div class="container-fluid mt-4">
-        <div class="row">
-            <!-- Sidebar -->
-            <div class="col-lg-2 col-md-3 d-md-block sidebar collapse">
-                <div class="position-sticky pt-3">
-                    <ul class="nav flex-column">
-                        <li class="nav-item">
-                            <a class="nav-link active" href="#">
-                                Resumen
+            <ul class="dashboard-nav">
+                <li class="nav-item active">
+                    <a href="#" class="nav-link">
+                        <i class="bi bi-house-door"></i>
+                        <span>Inicio</span>
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a href="#" class="nav-link">
+                        <i class="bi bi-graph-up"></i>
+                        <span>Analíticas</span>
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a href="#" class="nav-link">
+                        <i class="bi bi-people"></i>
+                        <span>Clientes</span>
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a href="#" class="nav-link">
+                        <i class="bi bi-box-seam"></i>
+                        <span>Productos</span>
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a href="#" class="nav-link">
+                        <i class="bi bi-file-earmark-text"></i>
+                        <span>Reportes</span>
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a href="#" class="nav-link">
+                        <i class="bi bi-gear"></i>
+                        <span>Configuración</span>
+                    </a>
+                </li>
+            </ul>
+        </nav>
+
+        <!-- Main Content -->
+        <div class="dashboard-main">
+            <!-- Top Navbar -->
+            <nav class="dashboard-topbar">
+                <div class="container-fluid">
+                    <button id="sidebarCollapse" class="btn btn-toggle">
+                        <i class="bi bi-list"></i>
+                    </button>
+                    
+                    <div class="dashboard-search">
+                        <div class="input-group">
+                            <input type="text" class="form-control" placeholder="Buscar...">
+                            <button class="btn btn-search" type="button">
+                                <i class="bi bi-search"></i>
+                            </button>
+                        </div>
+                    </div>
+                    
+                    <ul class="dashboard-topbar-nav">
+                        <li class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown">
+                                <i class="bi bi-bell"></i>
+                                <span class="badge bg-danger">3</span>
                             </a>
+                            <ul class="dropdown-menu dropdown-notifications">
+                                <li><h6 class="dropdown-header">Notificaciones</h6></li>
+                                <li><a class="dropdown-item" href="#">Nuevo mensaje</a></li>
+                                <li><a class="dropdown-item" href="#">Actualización del sistema</a></li>
+                                <li><a class="dropdown-item" href="#">Pedido completado</a></li>
+                            </ul>
                         </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="#">
-                                Ventas
+                        <li class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown">
+                                <i class="bi bi-person-circle"></i>
                             </a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="#">
-                                Usuarios
-                            </a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="#">
-                                Productos
-                            </a>
+                            <ul class="dropdown-menu dropdown-user">
+                                <li><a class="dropdown-item" href="#"><i class="bi bi-person"></i> Perfil</a></li>
+                                <li><a class="dropdown-item" href="#"><i class="bi bi-gear"></i> Configuración</a></li>
+                                <li><hr class="dropdown-divider"></li>
+                                <li><a class="dropdown-item" href="#"><i class="bi bi-box-arrow-right"></i> Cerrar sesión</a></li>
+                            </ul>
                         </li>
                     </ul>
                 </div>
-            </div>
+            </nav>
 
-            <!-- Main content -->
-            <div class="col-lg-10 col-md-9 ms-sm-auto px-md-4">
-                <!-- Cards superiores -->
-                <div class="row mb-4">
-                    <div class="col-md-3">
-                        <div class="card text-white bg-success mb-3">
-                            <div class="card-body">
-                                <h5 class="card-title">Ventas Totales</h5>
-                                <p class="card-text display-6" id="total-sales">$0</p>
-                            </div>
-                        </div>
+            <!-- Content -->
+            <div class="dashboard-content">
+                <div class="container-fluid">
+                    <!-- Page Header -->
+                    <div class="dashboard-page-header">
+                        <h1>Panel de Control</h1>
+                        <nav aria-label="breadcrumb">
+                            <ol class="breadcrumb">
+                                <li class="breadcrumb-item"><a href="#">Inicio</a></li>
+                                <li class="breadcrumb-item active" aria-current="page">Dashboard</li>
+                            </ol>
+                        </nav>
                     </div>
-                    <div class="col-md-3">
-                        <div class="card text-white bg-info mb-3">
-                            <div class="card-body">
-                                <h5 class="card-title">Usuarios Activos</h5>
-                                <p class="card-text display-6" id="active-users">0</p>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-md-3">
-                        <div class="card text-white bg-warning mb-3">
-                            <div class="card-body">
-                                <h5 class="card-title">Nuevos Pedidos</h5>
-                                <p class="card-text display-6" id="new-orders">0</p>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-md-3">
-                        <div class="card text-white bg-danger mb-3">
-                            <div class="card-body">
-                                <h5 class="card-title">Tasa de Conversión</h5>
-                                <p class="card-text display-6" id="conversion-rate">0%</p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
 
-                <!-- Gráficos -->
-                <div class="row">
-                    <div class="col-md-6 mb-4">
-                        <div class="card">
-                            <div class="card-header">
-                                <h5>Ventas Mensuales</h5>
+                    <!-- Metrics Cards -->
+                    <div class="row g-4 mb-4">
+                        <div class="col-xl-3 col-md-6">
+                            <div class="card metric-card bg-primary bg-gradient">
+                                <div class="card-body">
+                                    <div class="metric-info">
+                                        <h5 class="metric-title">Ventas Totales</h5>
+                                        <h2 class="metric-value">$24,780</h2>
+                                        <span class="metric-change positive">
+                                            <i class="bi bi-arrow-up"></i> 12.5%
+                                        </span>
+                                    </div>
+                                    <div class="metric-icon">
+                                        <i class="bi bi-currency-dollar"></i>
+                                    </div>
+                                </div>
                             </div>
-                            <div class="card-body">
-                                <canvas id="salesChart" height="250"></canvas>
+                        </div>
+                        
+                        <div class="col-xl-3 col-md-6">
+                            <div class="card metric-card bg-success bg-gradient">
+                                <div class="card-body">
+                                    <div class="metric-info">
+                                        <h5 class="metric-title">Clientes Nuevos</h5>
+                                        <h2 class="metric-value">1,254</h2>
+                                        <span class="metric-change positive">
+                                            <i class="bi bi-arrow-up"></i> 8.3%
+                                        </span>
+                                    </div>
+                                    <div class="metric-icon">
+                                        <i class="bi bi-people"></i>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="col-xl-3 col-md-6">
+                            <div class="card metric-card bg-warning bg-gradient">
+                                <div class="card-body">
+                                    <div class="metric-info">
+                                        <h5 class="metric-title">Tasa de Conversión</h5>
+                                        <h2 class="metric-value">3.6%</h2>
+                                        <span class="metric-change negative">
+                                            <i class="bi bi-arrow-down"></i> 1.2%
+                                        </span>
+                                    </div>
+                                    <div class="metric-icon">
+                                        <i class="bi bi-percent"></i>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="col-xl-3 col-md-6">
+                            <div class="card metric-card bg-info bg-gradient">
+                                <div class="card-body">
+                                    <div class="metric-info">
+                                        <h5 class="metric-title">Satisfacción</h5>
+                                        <h2 class="metric-value">4.8/5</h2>
+                                        <span class="metric-change positive">
+                                            <i class="bi bi-arrow-up"></i> 0.4%
+                                        </span>
+                                    </div>
+                                    <div class="metric-icon">
+                                        <i class="bi bi-emoji-smile"></i>
+                                    </div>
+                                </div>
                             </div>
                         </div>
                     </div>
-                    <div class="col-md-6 mb-4">
-                        <div class="card">
-                            <div class="card-header">
-                                <h5>Distribución de Productos</h5>
-                            </div>
-                            <div class="card-body">
-                                <canvas id="productsChart" height="250"></canvas>
-                            </div>
-                        </div>
-                    </div>
-                </div>
 
-                <!-- Tabla de datos -->
-                <div class="row">
-                    <div class="col-12">
-                        <div class="card">
-                            <div class="card-header">
-                                <h5>Últimas Transacciones</h5>
+                    <!-- Charts Row -->
+                    <div class="row g-4 mb-4">
+                        <div class="col-xl-8">
+                            <div class="card">
+                                <div class="card-header">
+                                    <h5 class="card-title">
+                                        <i class="bi bi-graph-up"></i> Ventas Mensuales
+                                    </h5>
+                                    <div class="card-actions">
+                                        <div class="dropdown">
+                                            <button class="btn btn-sm btn-outline-secondary dropdown-toggle" type="button" data-bs-toggle="dropdown">
+                                                Este año
+                                            </button>
+                                            <ul class="dropdown-menu">
+                                                <li><a class="dropdown-item" href="#">Este año</a></li>
+                                                <li><a class="dropdown-item" href="#">Año pasado</a></li>
+                                                <li><a class="dropdown-item" href="#">Últimos 2 años</a></li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="card-body">
+                                    <div class="chart-container" style="height: 300px;">
+                                        <!-- Aquí iría el gráfico -->
+                                        <div class="chart-placeholder d-flex align-items-center justify-content-center">
+                                            <div class="text-center">
+                                                <i class="bi bi-bar-chart" style="font-size: 3rem; opacity: 0.2;"></i>
+                                                <p class="mt-2 text-muted">Gráfico de ventas</p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
                             </div>
-                            <div class="card-body">
-                                <div class="table-responsive">
-                                    <table class="table table-striped table-hover" id="transactions-table">
-                                        <thead>
-                                            <tr>
-                                                <th>ID</th>
-                                                <th>Cliente</th>
-                                                <th>Producto</th>
-                                                <th>Monto</th>
-                                                <th>Fecha</th>
-                                                <th>Estado</th>
-                                            </tr>
-                                        </thead>
-                                        <tbody>
-                                            <!-- Datos se cargarán con JavaScript -->
-                                        </tbody>
-                                    </table>
+                        </div>
+                        
+                        <div class="col-xl-4">
+                            <div class="card">
+                                <div class="card-header">
+                                    <h5 class="card-title">
+                                        <i class="bi bi-pie-chart"></i> Distribución por Categoría
+                                    </h5>
+                                </div>
+                                <div class="card-body">
+                                    <div class="chart-container" style="height: 300px;">
+                                        <!-- Aquí iría el gráfico -->
+                                        <div class="chart-placeholder d-flex align-items-center justify-content-center">
+                                            <div class="text-center">
+                                                <i class="bi bi-pie-chart" style="font-size: 3rem; opacity: 0.2;"></i>
+                                                <p class="mt-2 text-muted">Gráfico de categorías</p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Tables Row -->
+                    <div class="row g-4">
+                        <div class="col-xl-6">
+                            <div class="card">
+                                <div class="card-header">
+                                    <h5 class="card-title">
+                                        <i class="bi bi-table"></i> Últimos Pedidos
+                                    </h5>
+                                    <div class="card-actions">
+                                        <button class="btn btn-sm btn-outline-primary">Ver todos</button>
+                                    </div>
+                                </div>
+                                <div class="card-body">
+                                    <div class="table-responsive">
+                                        <table class="table table-hover">
+                                            <thead>
+                                                <tr>
+                                                    <th>ID</th>
+                                                    <th>Cliente</th>
+                                                    <th>Total</th>
+                                                    <th>Estado</th>
+                                                </tr>
+                                            </thead>
+                                            <tbody>
+                                                <tr>
+                                                    <td>#ORD-001</td>
+                                                    <td>Juan Pérez</td>
+                                                    <td>$245.00</td>
+                                                    <td><span class="badge bg-success">Completado</span></td>
+                                                </tr>
+                                                <tr>
+                                                    <td>#ORD-002</td>
+                                                    <td>María García</td>
+                                                    <td>$1,245.00</td>
+                                                    <td><span class="badge bg-warning">Pendiente</span></td>
+                                                </tr>
+                                                <tr>
+                                                    <td>#ORD-003</td>
+                                                    <td>Carlos López</td>
+                                                    <td>$845.00</td>
+                                                    <td><span class="badge bg-success">Completado</span></td>
+                                                </tr>
+                                                <tr>
+                                                    <td>#ORD-004</td>
+                                                    <td>Ana Martínez</td>
+                                                    <td>$345.00</td>
+                                                    <td><span class="badge bg-danger">Cancelado</span></td>
+                                                </tr>
+                                                <tr>
+                                                    <td>#ORD-005</td>
+                                                    <td>Pedro Sánchez</td>
+                                                    <td>$1,045.00</td>
+                                                    <td><span class="badge bg-info">Enviado</span></td>
+                                                </tr>
+                                            </tbody>
+                                        </table>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="col-xl-6">
+                            <div class="card">
+                                <div class="card-header">
+                                    <h5 class="card-title">
+                                        <i class="bi bi-activity"></i> Actividad Reciente
+                                    </h5>
+                                </div>
+                                <div class="card-body">
+                                    <div class="activity-feed">
+                                        <div class="feed-item">
+                                            <div class="feed-icon bg-primary">
+                                                <i class="bi bi-cart-check"></i>
+                                            </div>
+                                            <div class="feed-content">
+                                                <span class="feed-text">Nuevo pedido #ORD-006 por $560.00</span>
+                                                <span class="feed-time">Hace 15 minutos</span>
+                                            </div>
+                                        </div>
+                                        <div class="feed-item">
+                                            <div class="feed-icon bg-success">
+                                                <i class="bi bi-person-plus"></i>
+                                            </div>
+                                            <div class="feed-content">
+                                                <span class="feed-text">Nuevo cliente registrado: Laura Gómez</span>
+                                                <span class="feed-time">Hace 1 hora</span>
+                                            </div>
+                                        </div>
+                                        <div class="feed-item">
+                                            <div class="feed-icon bg-info">
+                                                <i class="bi bi-envelope"></i>
+                                            </div>
+                                            <div class="feed-content">
+                                                <span class="feed-text">Nuevo mensaje de soporte recibido</span>
+                                                <span class="feed-time">Hace 3 horas</span>
+                                            </div>
+                                        </div>
+                                        <div class="feed-item">
+                                            <div class="feed-icon bg-warning">
+                                                <i class="bi bi-arrow-repeat"></i>
+                                            </div>
+                                            <div class="feed-content">
+                                                <span class="feed-text">Pedido #ORD-003 marcado como completado</span>
+                                                <span class="feed-time">Hace 5 horas</span>
+                                            </div>
+                                        </div>
+                                        <div class="feed-item">
+                                            <div class="feed-icon bg-danger">
+                                                <i class="bi bi-x-circle"></i>
+                                            </div>
+                                            <div class="feed-content">
+                                                <span class="feed-text">Pedido #ORD-004 cancelado por el cliente</span>
+                                                <span class="feed-time">Ayer, 14:32</span>
+                                            </div>
+                                        </div>
+                                    </div>
                                 </div>
                             </div>
                         </div>
@@ -165,12 +378,10 @@
         </div>
     </div>
 
-    <!-- Bootstrap JS Bundle with Popper -->
-    <script src="lib/bootstrap/js/bootstrap.bundle.min.js"></script>
+    <!-- Bootstrap 5 JS Bundle with Popper -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
     
-    <!-- Nuestros archivos JS -->
-    <script src="js/utils.js"></script>
-    <script src="js/charts.js"></script>
-    <script src="js/app.js"></script>
+    <!-- JS Personalizado -->
+    <script src="js/dashboard.js"></script>
 </body>
 </html>
